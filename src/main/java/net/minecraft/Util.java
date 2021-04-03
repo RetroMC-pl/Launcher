@@ -100,23 +100,6 @@ public class Util {
 			connection.setDoOutput(true);
 
 			connection.connect();
-			Certificate[] certs = connection.getServerCertificates();
-
-			byte[] bytes = new byte[294];
-			DataInputStream dis = new DataInputStream(
-					Util.class.getResourceAsStream("minecraft.key"));
-			dis.readFully(bytes);
-			dis.close();
-
-			Certificate c = certs[0];
-			PublicKey pk = c.getPublicKey();
-			byte[] data = pk.getEncoded();
-
-			for (int i = 0; i < data.length; i++) {
-				if (data[i] == bytes[i])
-					continue;
-				throw new RuntimeException("Public key mismatch");
-			}
 
 			DataOutputStream wr = new DataOutputStream(
 					connection.getOutputStream());

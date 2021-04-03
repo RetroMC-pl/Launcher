@@ -95,10 +95,10 @@ public class LauncherFrame extends Frame {
 			String parameters = "user=" + URLEncoder.encode(userName, "UTF-8")
 					+ "&password=" + URLEncoder.encode(password, "UTF-8")
 					+ "&version=" + 13;
-			String result = Util.excutePost("https://login.minecraft.net/",
+			String result = Util.excutePost("https://login.retromc.pl/",
 					parameters);
 			if (result == null) {
-				showError("Can't connect to minecraft.net");
+				showError("Can't connect to retromc.pl");
 				this.loginForm.setNoNetwork();
 				return;
 			}

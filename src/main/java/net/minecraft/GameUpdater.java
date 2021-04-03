@@ -163,7 +163,7 @@ public class GameUpdater implements Runnable {
 
 		this.urlList = new URL[jarCount];
 
-		URL path = new URL("http://s3.amazonaws.com/MinecraftDownload/");
+		URL path = new URL("https://resources.retromc.pl/client/");
 
 		for (int i = 0; i < jarCount - 1; i++) {
 			this.urlList[i] = new URL(path, jar.nextToken());
@@ -506,8 +506,8 @@ public class GameUpdater implements Runnable {
 					if (etag != null) {
 						md5Matches = md5.equals(etag);
 					}
-
-					if ((urlconnection instanceof HttpURLConnection)) {
+					// TO:DO MAKE IT WORK
+					/* if ((urlconnection instanceof HttpURLConnection)) {
 						if ((md5Matches)
 								&& ((fileSize == fileSizes[i]) || (fileSizes[i] <= 0))) {
 							try {
@@ -528,7 +528,7 @@ public class GameUpdater implements Runnable {
 										+ currentFile);
 							}
 						}
-					}
+					} */
 				}
 			}
 		}
